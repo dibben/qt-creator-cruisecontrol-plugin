@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/cruisecontrol">
+        <file>resources/green-ball.png</file>
+        <file>resources/grey-ball.png</file>
+        <file>resources/red-ball.png</file>
+        <file>resources/red-cross.png</file>
+        <file>resources/cruise.ico</file>
+    </qresource>
+</RCC>
