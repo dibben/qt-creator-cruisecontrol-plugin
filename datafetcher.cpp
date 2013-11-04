@@ -153,11 +153,10 @@ void DataFetcher::fetch(const QUrl &url)
             .arg(QString::fromAscii(Core::Constants::IDE_VERSION_LONG)).arg(QString::fromAscii(qVersion()))
             .arg(getOsString()).arg(QLocale::system().name())
             .arg(QSysInfo::WordSize);
-    //QHttpRequestHeader header(QString::fromAscii("GET"), url.path());
-    //qDebug() << agentStr;
+
     request.setHeader(QNetworkRequest::UserAgentHeader, agentStr);
-    //request.setRawHeader("Host", url.host().data());
-    /*m_connectionId =*/ m_http.get(request);
+
+    m_http.get(request);
 }
 
 void DataFetcher::readData(QNetworkReply* resp)
@@ -182,15 +181,6 @@ void DataFetcher::finished(int id, bool error)
     emit finished(error);
 }
 
-/*
-<item>
-<title>connectfour passed Fri, 20 Nov 2009 09:50:12 +0900</title>
-<description>Build passed</description>
-<pubDate>Fri, 20 Nov 2009 09:50:12 +0900</pubDate>
-<link>http://10.165.99.74:8080/cruisecontrol/buildresults/connectfour</link>
-</item>
-
-*/
 
 void DataFetcher::parseXml()
 {
