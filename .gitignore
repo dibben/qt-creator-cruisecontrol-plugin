@@ -11,3 +11,12 @@
 *.lai
 *.la
 *.a
+
+CruiseControl.pluginspec
+Makefile
+*.pro.user
+
+.moc
+.obj
+.uic
+.rcc

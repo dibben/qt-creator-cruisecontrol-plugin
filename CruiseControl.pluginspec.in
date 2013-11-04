@@ -1,4 +1,4 @@
-<plugin name="CruiseControl" version="0.1.0" compatVersion="2.8.82">
+<plugin name=\"CruiseControl\" version=\"0.1.0\" compatVersion=\"0.1.0\">
     <vendor>CreatorPlugins</vendor>
 	<copyright>David Dibben</copyright>
     <license>
@@ -6,7 +6,7 @@
     <description>Cruise Control plugin.</description>
     <url></url>
     <dependencyList>
-		<dependency name="Core" version="2.8.82"/>
-		<dependency name="TextEditor" version="2.8.82"/>
+		<dependency name=\"Core\" version=\"$$QTCREATOR_VERSION\"/>
+		<dependency name=\"TextEditor\" version=\"$$QTCREATOR_VERSION\"/>
     </dependencyList>
 </plugin>

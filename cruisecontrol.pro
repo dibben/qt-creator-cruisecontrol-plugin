@@ -24,6 +24,7 @@ SOURCES += cruisecontrolplugin.cpp \
     displaywidget.cpp \
     projects.cpp \
     datafetcher.cpp
+
 HEADERS += cruisecontrolplugin.h \ 
     cruisecontrolsetingspage.h \
     cruisecontrolconstants.h \
@@ -31,11 +32,8 @@ HEADERS += cruisecontrolplugin.h \
     projects.h \
     datafetcher.h
 
-FORMS += \
-    cruisecontrolsetingspage.ui
+FORMS += cruisecontrolsetingspage.ui
 
-RESOURCES += \
-    cruisecontrol.qrc
+RESOURCES += cruisecontrol.qrc
 
-OTHER_FILES += \
-    cruisecontrol.pluginspec
+OTHER_FILES += CruiseControl.pluginspec
