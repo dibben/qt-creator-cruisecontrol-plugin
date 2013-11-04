@@ -34,35 +34,35 @@ namespace Internal {
 
 class DataFetcher : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-	DataFetcher(int maxItems, QObject *parent = 0);
+    DataFetcher(int maxItems, QObject *parent = 0);
 
 signals:
 
-	void projectItemReady(const QString& title, const QString& date, bool passed, const QString& url);
+    void projectItemReady(const QString& title, const QString& date, bool passed, const QString& url);
 
 public slots:
-	void fetch(const QUrl &url);
-	void finished(int id, bool error);
-	void readData(QNetworkReply*);
+    void fetch(const QUrl &url);
+    void finished(int id, bool error);
+    void readData(QNetworkReply*);
 
 signals:
-	void finished(bool error);
+    void finished(bool error);
 
 private:
-	void parseXml();
+    void parseXml();
 
-	QXmlStreamReader m_xml;
-	QString m_currentTag;
-	QString m_linkString;
-	QString m_titleString;
-	QString m_dateString;
-	bool m_passed;
+    QXmlStreamReader m_xml;
+    QString m_currentTag;
+    QString m_linkString;
+    QString m_titleString;
+    QString m_dateString;
+    bool m_passed;
 
-	QNetworkAccessManager m_http;
-	int m_items;
-	int m_maxItems;
+    QNetworkAccessManager m_http;
+    int m_items;
+    int m_maxItems;
 
 };
 

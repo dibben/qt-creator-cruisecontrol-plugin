@@ -43,31 +43,31 @@ class DataFetcher;
 
 class CruiseControlPlugin  : public ExtensionSystem::IPlugin
 {
-	Q_OBJECT
-	Q_PLUGIN_METADATA(IID "org.qt-project.Qt.CruiseControlPlugin")
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.CruiseControlPlugin")
 public:
-	CruiseControlPlugin();
-	~CruiseControlPlugin();
+    CruiseControlPlugin();
+    ~CruiseControlPlugin();
 
-	bool initialize(const QStringList &arguments, QString *error_message);
-	void extensionsInitialized();
-	void shutdown();
+    bool initialize(const QStringList &arguments, QString *error_message);
+    void extensionsInitialized();
+    void shutdown();
 
 
 private slots:
 
-	void	refresh();
-	void	readFinished(bool error);
-	void	openResults();
+    void	refresh();
+    void	readFinished(bool error);
+    void	openResults();
 
 private:
 
 
-	QSharedPointer<CruiseControlSettings>	m_settings;
-	Projects*								m_projects;
-	DataFetcher*							m_fetcher;
-	QTimer*									m_timer;
-	bool									m_reading;
+    QSharedPointer<CruiseControlSettings>	m_settings;
+    Projects*								m_projects;
+    DataFetcher*							m_fetcher;
+    QTimer*									m_timer;
+    bool									m_reading;
 };
 
 } // namespace Internal

@@ -34,32 +34,32 @@ namespace Internal {
 
 class DisplayWidget : public QWidget
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-	DisplayWidget(Projects* projects);
+    DisplayWidget(Projects* projects);
 
 
-	QString	tooltipText() const;
+    QString	tooltipText() const;
 
 signals:
 
-	void	refreshRequested();
-	void	doubleClicked();
+    void	refreshRequested();
+    void	doubleClicked();
 
 protected:
 
-	bool event(QEvent* event);
-	void mouseDoubleClickEvent(QMouseEvent * event);
+    bool event(QEvent* event);
+    void mouseDoubleClickEvent(QMouseEvent * event);
 
 private slots:
 
-	void	updateState();
+    void	updateState();
 
 private:
-	QLabel *m_errorIcon;
-	QLabel *m_passIcon;
-	QLabel *m_noConnectionIcon;
-	Projects* m_projects;
+    QLabel *m_errorIcon;
+    QLabel *m_passIcon;
+    QLabel *m_noConnectionIcon;
+    Projects* m_projects;
 };
 
 } // namespace Internal
