@@ -97,11 +97,13 @@ static const QString getOsString()
     }
 #elif defined (Q_OS_UNIX)
     struct utsname uts;
-    if (uname(&uts) == 0)
-        osString += QString("%1 %2").arg(QLatin1String(uts.sysname))
-                .arg(QLatin1String(uts.release));
-    else
+    if (uname(&uts) == 0) {
+        osString += QLatin1String(uts.sysname);
+        osString += QLatin1String(" ");
+        osString += QLatin1String(uts.release);
+    } else {
         osString += QLatin1String("Unix (Unknown)");
+    }
 #else
     ossttring = QLatin1String("Unknown OS");
 #endif
@@ -195,7 +197,7 @@ void DataFetcher::parseXml()
     while (!m_xml.atEnd()) {
         m_xml.readNext();
         if (m_xml.isStartElement()) {
-            if (m_xml.name() == "item") {
+            if (m_xml.name() == QString::fromLatin1("item")) {
                 m_titleString.clear();
                 m_dateString.clear();
                 m_linkString.clear();
@@ -203,7 +205,7 @@ void DataFetcher::parseXml()
             }
             m_currentTag = m_xml.name().toString();
         } else if (m_xml.isEndElement()) {
-            if (m_xml.name() == "item") {
+            if (m_xml.name() == QString::fromLatin1("item")) {
                 m_items++;
                 if (m_items > m_maxItems)
                     return;
