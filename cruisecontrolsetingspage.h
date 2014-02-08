@@ -80,6 +80,7 @@ public:
 
 
     virtual QWidget *createPage(QWidget *parent);
+    virtual QWidget *widget();
     virtual void apply();
     virtual void finish() { }
 

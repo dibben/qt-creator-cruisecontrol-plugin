@@ -118,8 +118,14 @@ CruiseControlSettingsPage::~CruiseControlSettingsPage()
 
 QWidget *CruiseControlSettingsPage::createPage(QWidget *parent)
 {
-
     m_widget = new CruiseControlSettingsWidget(parent);
+    m_widget->setSettings(*m_settings);
+    return m_widget;
+}
+
+QWidget *CruiseControlSettingsPage::widget()
+{
+    m_widget = new CruiseControlSettingsWidget;
     m_widget->setSettings(*m_settings);
     return m_widget;
 }
