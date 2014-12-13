@@ -24,7 +24,8 @@ FORMS += cruisecontrolsetingspage.ui
 
 RESOURCES += cruisecontrol.qrc
 
-OTHER_FILES += CruiseControl.pluginspec
+OTHER_FILES += \
+    CruiseControl.json.in
 
 # Qt Creator linking
 

@@ -44,7 +44,7 @@ class DataFetcher;
 class CruiseControlPlugin  : public ExtensionSystem::IPlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.CruiseControlPlugin")
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QtCreatorPlugin" FILE "CruiseControl.json")
 public:
     CruiseControlPlugin();
     ~CruiseControlPlugin();

@@ -79,7 +79,7 @@ QString Projects::link(int i) const
 void Projects::setIgnored(const QString& list)
 {
     m_ignored.clear();
-    QStringList items = list.split(QString::fromAscii(","));
+    QStringList items = list.split(QString::fromLatin1(","));
     foreach (QString it, items){
         it = it.trimmed();
         m_ignored.insert(it);
@@ -123,9 +123,9 @@ QString	Projects::resultsUrl() const
     QString linkstr = link(0);
 
     //drop last 2 items from url
-    int pos = linkstr.lastIndexOf(QChar::fromAscii('/'));
+    int pos = linkstr.lastIndexOf(QChar::fromLatin1('/'));
     if (pos == -1) return QString();
-    pos = linkstr.lastIndexOf(QChar::fromAscii('/'), pos - 1);
+    pos = linkstr.lastIndexOf(QChar::fromLatin1('/'), pos - 1);
     if (pos == -1) return QString();
     return linkstr.left(pos);
 }

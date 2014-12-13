@@ -28,7 +28,7 @@
 
 #include <utils/synchronousprocess.h>
 
-#include <vcsbase/vcsbaseoutputwindow.h>
+#include <vcsbase/vcsoutputwindow.h>
 
 #include "projectexplorer/projectexplorer.h"
 #include "projectexplorer/project.h"
@@ -133,7 +133,5 @@ void CruiseControlPlugin::shutdown()
     m_timer->stop();
 }
 
-
-Q_EXPORT_PLUGIN(CruiseControlPlugin)
 
 

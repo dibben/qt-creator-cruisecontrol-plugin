@@ -127,7 +127,7 @@ void DataFetcher::fetch(const QUrl &url)
         return;
     }
 
-    if (url.scheme() == QString::fromAscii("file")) {
+    if (url.scheme() == QString::fromLatin1("file")) {
         QString filename = url.toLocalFile();
         QFile file(filename);
         if (file.open(QFile::ReadOnly)) {
@@ -149,8 +149,8 @@ void DataFetcher::fetch(const QUrl &url)
 
     QNetworkRequest request;
     request.setUrl(url);
-    QString agentStr = QString::fromAscii("Qt-Creator/%1 (QHttp %2; %3; %4; %5 bit)")
-            .arg(QString::fromAscii(Core::Constants::IDE_VERSION_LONG)).arg(QString::fromAscii(qVersion()))
+    QString agentStr = QString::fromLatin1("Qt-Creator/%1 (QHttp %2; %3; %4; %5 bit)")
+            .arg(QString::fromLatin1(Core::Constants::IDE_VERSION_LONG)).arg(QString::fromLatin1(qVersion()))
             .arg(getOsString()).arg(QLocale::system().name())
             .arg(QSysInfo::WordSize);
 
@@ -203,20 +203,20 @@ void DataFetcher::parseXml()
             }
 
         } else if (m_xml.isCharacters() && !m_xml.isWhitespace()) {
-            if (m_currentTag == QString::fromAscii("title")) {
+            if (m_currentTag == QString::fromLatin1("title")) {
                 QString title = m_xml.text().toString();
-                int pos = title.toLower().indexOf(QString::fromAscii("passed"));
+                int pos = title.toLower().indexOf(QString::fromLatin1("passed"));
                 if (pos < 0) {
-                    pos = title.toLower().indexOf(QString::fromAscii("failed"));
+                    pos = title.toLower().indexOf(QString::fromLatin1("failed"));
                 }
                 m_titleString = (pos > 0 ? title.left(pos) : title).trimmed();
-            } else if (m_currentTag == QString::fromAscii("pubDate")) {
+            } else if (m_currentTag == QString::fromLatin1("pubDate")) {
                 m_dateString += m_xml.text().toString();
-            } else if (m_currentTag == QString::fromAscii("pubDate")) {
+            } else if (m_currentTag == QString::fromLatin1("pubDate")) {
                 m_dateString += m_xml.text().toString();
-            } else if (m_currentTag == QString::fromAscii("description")) {
-                m_passed = (m_xml.text().toString().toLower().indexOf(QString::fromAscii("passed")) > 0);
-            }else if (m_currentTag == QString::fromAscii("link")) {
+            } else if (m_currentTag == QString::fromLatin1("description")) {
+                m_passed = (m_xml.text().toString().toLower().indexOf(QString::fromLatin1("passed")) > 0);
+            }else if (m_currentTag == QString::fromLatin1("link")) {
                 m_linkString += m_xml.text().toString();
             }
         }

@@ -66,9 +66,9 @@ DisplayWidget::DisplayWidget(Projects* projects) :
     m_errorIcon->setAlignment(Qt::AlignCenter);
     m_passIcon->setAlignment(Qt::AlignLeft);
 
-    m_errorIcon->setPixmap(QPixmap(QString::fromAscii(":/cruisecontrol/resources/red-ball.png")));
-    m_noConnectionIcon->setPixmap(QPixmap(QString::fromAscii(":/cruisecontrol/resources/red-cross.png")));
-    m_passIcon->setPixmap(QPixmap(QString::fromAscii(":/cruisecontrol/resources/green-ball.png")));
+    m_errorIcon->setPixmap(QPixmap(QString::fromLatin1(":/cruisecontrol/resources/red-ball.png")));
+    m_noConnectionIcon->setPixmap(QPixmap(QString::fromLatin1(":/cruisecontrol/resources/red-cross.png")));
+    m_passIcon->setPixmap(QPixmap(QString::fromLatin1(":/cruisecontrol/resources/green-ball.png")));
 
     connect(m_projects, SIGNAL(projectsChanged()), this, SLOT(updateState()));
 
@@ -129,16 +129,16 @@ QString	DisplayWidget::tooltipText() const
     }
 
     QString rc;
-    rc += QString::fromAscii("<table width=\"300\">\n");
+    rc += QString::fromLatin1("<table width=\"300\">\n");
     for (int i = 0 ; i < numProjects; i++) {
-        QString color = m_projects->passed(i) ? QString::fromAscii("green") : QString::fromAscii("red");
+        QString color = m_projects->passed(i) ? QString::fromLatin1("green") : QString::fromLatin1("red");
 
-        rc += QString::fromAscii("<tr>");
-        rc += QString::fromAscii("<td><font color=\"%1\">%2</font></td>").arg(color).arg(m_projects->name(i));
-        rc += QString::fromAscii("<td><font color=\"%1\">%2</font></td>").arg(color).arg(m_projects->date(i));
-        rc += QString::fromAscii("</tr>\n");
+        rc += QString::fromLatin1("<tr>");
+        rc += QString::fromLatin1("<td><font color=\"%1\">%2</font></td>").arg(color).arg(m_projects->name(i));
+        rc += QString::fromLatin1("<td><font color=\"%1\">%2</font></td>").arg(color).arg(m_projects->date(i));
+        rc += QString::fromLatin1("</tr>\n");
     }
-    rc += QString::fromAscii("</table>\n");
+    rc += QString::fromLatin1("</table>\n");
 
     return rc;
 }
